@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -31,12 +30,17 @@ st.title("🌿 Credit Risk & Market Scoring App")
 st.caption("Diseño inspirado en Floema — Flujo de Machine Learning para Riesgo Crediticio")
 st.write("---")
 
-# ----------------- SIDEBAR: NAVEGACIÓN -----------------
+# ----------------- SIDEBAR: NAVEGACIÓN Y ENLACES -----------------
 st.sidebar.header("Navegación del Flujo")
 menu = st.sidebar.radio(
     "Selecciona un paso:",
     ["1. Carga de Datos", "2. Limpieza de Datos", "3. Exploración EDA", "4. Regresión Logística", "5. Random Forest", "6. Descarga de Modelo"]
 )
+
+st.sidebar.write("---")
+st.sidebar.subheader("Recursos del Proyecto")
+# Añadimos el botón oficial de Google Colab con tu enlace personalizado
+st.sidebar.markdown("[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1DOc0kIwisdqjnfBaeSAjIyXVjb8O5XGA?usp=sharing)")
 
 # Inicializar estados de sesión para no perder la información al cambiar de pestaña
 if 'df' not in st.session_state:
@@ -62,7 +66,7 @@ if menu == "1. Carga de Datos":
         st.subheader("Vista previa de los datos originales")
         st.dataframe(st.session_state.df.head(10))
 
-# ----------------- PASO 2: LIMPIEZA DE DATOS -----------------
+# ----------------- PASO 2: LIMPIELA DE DATOS -----------------
 elif menu == "2. Limpieza de Datos":
     st.header("🧼 Limpieza de Datos Atípicos")
     
@@ -71,7 +75,6 @@ elif menu == "2. Limpieza de Datos":
     else:
         st.write("En este paso removemos el error de registros de antigüedad laboral mayores a 60 años y separamos el target.")
         
-        # Proceso de limpieza idéntico a tu Colab
         df_clean = st.session_state.df.copy()
         if 'person_emp_length' in df_clean.columns:
             df_clean = df_clean[df_clean['person_emp_length'] < 60]
@@ -111,7 +114,6 @@ elif menu == "4. Regresión Logística":
     if st.session_state.df_clean is None:
         st.warning("⚠️ Requiere datos limpios del Paso 2.")
     else:
-        # Preparación de variables de tu Colab
         X = st.session_state.df_clean.drop(columns=['loan_status', 'person_age', 'person_home_ownership', 'loan_intent', 'loan_grade'], errors='ignore')
         y = st.session_state.df_clean['loan_status']
         X = pd.get_dummies(X, drop_first=True)
