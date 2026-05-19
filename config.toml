@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#364A3F"         # Verde bosque profundo (Floema)
+backgroundColor = "#F9F8F6"      # Fondo crema claro / Arena limpia
+secondaryBackgroundColor = "#EAE6DF" # Gris arena suave para el sidebar
+textColor = "#222222"            # Texto casi negro para alta legibilidad
+font = "serif"                   # Tipografía elegante de estilo editorial
