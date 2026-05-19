@@ -1,1 +1,39 @@
+Se usaron imagenes de una web https://www.awwwards.com/sites/floema#typography para que la ia me generara la mejor manera de generar un buen prompt y se vea bien aunque en la ejecucion no paso 
 
+
+Objetivo del Sistema: Desarrollar una aplicación web interactiva en Python utilizando el framework Streamlit para desplegar el flujo de punta a punta (End-to-End) de un modelo de Machine Learning enfocado en la evaluación y clasificación de Riesgo Crediticio (Credit Risk Analytics).
+
+1. Especificaciones de Diseño y Estética Visual (Inspiración Floema):
+
+Estilo General: Diseño editorial, minimalista, limpio y moderno inspirado en interfaces de alta gama.
+
+Paleta de Colores Corporativa: - Color Primario y Botones: Verde bosque profundo (#364A3F).
+
+Color de Fondo Principal: Crema claro / Arena limpia (#F9F8F6).
+
+Fondo del Panel Lateral: Gris arena suave (#EAE6DF).
+
+Texto: Alta legibilidad con tonos oscuros (#222222).
+
+Tipografía: Configurar fuentes de estilo Serif para los títulos principales para reforzar el acabado editorial.
+
+2. Arquitectura de Navegación (Layout del Sidebar):
+Diseñar un menú de navegación mediante un panel de control a la izquierda (st.sidebar.radio) que guíe al usuario de forma secuencial a través de las siguientes 6 etapas del pipeline de Machine Learning:
+
+Paso 1. Carga de Datos: Implementar un componente de carga de archivos (st.file_uploader) para ingresar el dataset original en formato CSV y desplegar una vista previa tabular interactiva.
+
+Paso 2. Limpieza de Datos: Ejecutar el preprocesamiento lógico controlado en clase, filtrando outliers críticos (registros de antigüedad laboral person_emp_length mayores o iguales a 60 años) y aislando el vector de características (features) de la variable objetivo (loan_status).
+
+Paso 3. Exploración EDA: Renderizar gráficos dinámicos con seaborn y matplotlib para analizar visualmente la distribución del desbalance de clases de la variable target y la correlación entre variables clave.
+
+Paso 4. Regresión Logística: Construir e integrar en tiempo real un flujo robusto utilizando make_pipeline que ejecute la imputación de valores faltantes (SimpleImputer por media), el escalado simétrico (StandardScaler) y el entrenamiento del clasificador lineal. Desplegar su respectivo classification_report y su matriz de confusión.
+
+Paso 5. Random Forest: Construir un pipeline alternativo sustituyendo el algoritmo por un clasificador de ensamble no lineal (RandomForestClassifier con 100 estimadores). Mostrar sus métricas y su correspondiente matriz de confusión personalizada en una paleta cromática verde para contrastar con el modelo anterior.
+
+Paso 6. Descarga de Modelo: Configurar botones de descarga en la interfaz (st.download_button) que permitan exportar los objetos de los modelos entrenados directamente a la computadora local en formato binario nativo de Python (.pkl) empleando la librería joblib.
+
+3. Restricciones Técnicas y Persistencia:
+
+Implementar el manejo estricto de variables de estado de sesión (st.session_state) para asegurar que los datos cargados, las limpiezas ejecutadas y los modelos entrenados no se destruyan o reinicien al navegar libremente entre las pestañas de la aplicación.
+
+Añadir en la sección inferior de la barra lateral el acceso directo oficial mediante el badge "Open in Colab" apuntando a la libreta de desarrollo original del proyecto: https://colab.research.google.com/drive/1DOc0kIwisdqjnfBaeSAjIyXVjb8O5XGA?usp=sharing
