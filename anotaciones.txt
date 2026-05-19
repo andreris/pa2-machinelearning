@@ -1,4 +1,5 @@
 Se usaron imagenes de una web https://www.awwwards.com/sites/floema#typography para que la ia me generara la mejor manera de generar un buen prompt y se vea bien aunque en la ejecucion no paso 
+tambien se le paso el archivo ipynb para que se guiara
 
 
 Objetivo del Sistema: Desarrollar una aplicación web interactiva en Python utilizando el framework Streamlit para desplegar el flujo de punta a punta (End-to-End) de un modelo de Machine Learning enfocado en la evaluación y clasificación de Riesgo Crediticio (Credit Risk Analytics).
